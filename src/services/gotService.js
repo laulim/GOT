@@ -6,9 +6,10 @@ export default class GotService {
 
   async getResourses(url) {
     const res = await fetch(`${this._apiBase}${url}`);
-
+    
     if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, sttsus: ${res.status}`);
+      // throw new Error(`Could not fetch ${url}, statsus: ${res.status}`);
+      throw res.status;
     }
 
     return await res.json();
@@ -21,6 +22,7 @@ export default class GotService {
 
   async getCharacter(id) {
     const character = await this.getResourses(`/characters/${id}`);
+    console.log(character);
     return this._transformCharacter(character);
   }
 
