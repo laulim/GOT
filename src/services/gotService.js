@@ -14,27 +14,63 @@ export default class GotService {
     return await res.json();
   };
 
-  getAllCaracters(page, pageSize=10) {
-    return this.getResourses(`/characters?page=${page}&pageSize=${pageSize}`);
+  async getAllCaracters(page, pageSize=10) {
+    const res = await this.getResourses(`/characters?page=${page}&pageSize=${pageSize}`);
+    return res.map(this._transformCharacter);
   }
 
-  getCharacter(id) {
-    return this.getResourses(`/characters/${id}`);
+  async getCharacter(id) {
+    const character = await this.getResourses(`/characters/${id}`);
+    return this._transformCharacter(character);
   }
 
-  getAllBooks(page, pageSize=10) {
-    return this.getResourses(`/books?page=${page}&pageSize=${pageSize}`);
+  async getAllBooks(page, pageSize=10) {
+    const res = await this.getResourses(`/books?page=${page}&pageSize=${pageSize}`);
+    return res.map(this._transformBook);
   }
 
-  getBook(id) {
-    return this.getResourses(`/books/${id}`);
+  async getBook(id) {
+    const book = await this.getResourses(`/books/${id}`);
+    return this._transformBook(book);
   }
 
-  getAllHouses(page, pageSize=10) {
-    return this.getResourses(`/houses?page=${page}&pageSize=${pageSize}`);
+  async getAllHouses(page, pageSize=10) {
+    const res = await this.getResourses(`/houses?page=${page}&pageSize=${pageSize}`);
+    return res.map(this._transformHouse);
   }
 
-  getHouse(id) {
-    return this.getResourses(`/houses/${id}`);
+  async getHouse(id) {
+    const house = await this.getResourses(`/houses/${id}`);
+    return this._transformHouse(house);
+  }
+
+  _transformCharacter(char){
+    return {
+      name: char.name,
+      gender: char.gender,
+      born: char.born,
+      died: char.died,
+      culture: char.culture
+    }
+  }
+
+  _transformHouse(house) {
+    return {
+      name: house.name,
+      region: house.region,
+      words: house.words,
+      titles: house.titles,
+      overload: house.overload,
+      ancestralWeapons: house.ancestralWeapons
+    }
+  }
+
+  _transformBook(book) {
+    return {
+      name: book.name,
+      numberOfPages: book.numberOfPages,
+      publisher: book.publisher,
+      released: book.released
+    }
   }
 }
