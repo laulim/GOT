@@ -17,12 +17,14 @@ export default class GotService {
 
   async getAllCaracters(page, pageSize=10) {
     const res = await this.getResourses(`/characters?page=${page}&pageSize=${pageSize}`);
+    if (res.length == 0) {
+      throw res.status;
+    }
     return res.map(this._transformCharacter);
   }
 
   async getCharacter(id) {
     const character = await this.getResourses(`/characters/${id}`);
-    console.log(character);
     return this._transformCharacter(character);
   }
 
@@ -48,31 +50,32 @@ export default class GotService {
 
   _transformCharacter(char){
     return {
-      name: char.name,
-      gender: char.gender,
-      born: char.born,
-      died: char.died,
-      culture: char.culture
+      url: char.url,
+      name: char.name || 'lost to history...',
+      gender: char.gender || 'lost to history...',
+      born: char.born || 'lost to history...',
+      died: char.died || 'lost to history...',
+      culture: char.culture || 'lost to history...'
     }
   }
 
   _transformHouse(house) {
     return {
-      name: house.name,
-      region: house.region,
-      words: house.words,
-      titles: house.titles,
-      overload: house.overload,
-      ancestralWeapons: house.ancestralWeapons
+      name: house.name || 'lost to history...',
+      region: house.region || 'lost to history...',
+      words: house.words || 'lost to history...',
+      titles: house.titles || 'lost to history...',
+      overload: house.overload || 'lost to history...',
+      ancestralWeapons: house.ancestralWeapons || 'lost to history...'
     }
   }
 
   _transformBook(book) {
     return {
-      name: book.name,
-      numberOfPages: book.numberOfPages,
-      publisher: book.publisher,
-      released: book.released
+      name: book.name || 'lost to history...',
+      numberOfPages: book.numberOfPages || 'lost to history...',
+      publisher: book.publisher || 'lost to history...',
+      released: book.released || 'lost to history...'
     }
   }
 }

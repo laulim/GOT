@@ -2,25 +2,47 @@ import React, {Component} from 'react';
 import {Col, Row, Container, Button} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import ErrorMessage from '../errorMessage';
+import CaracterPage from '../characterPage';
 // import GotService from '../../services/gotService';
 
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {charBlockToggle: true}
+
+  state = {
+    showRandomChar: true,
+    selectedChar: null,
+    error: false
   }
 
+  componentDidCatch() {
+    console.log('error');
+    this.setState({
+      error: true
+    })
+  }
   
   onToggleRandomChar = (e) => {
     e.preventDefault();
-    this.setState({charBlockToggle: !this.state.charBlockToggle});
+    this.setState((state) => {
+      return {
+        showRandomChar: !state.showRandomChar
+      }
+    });
+  }
+
+  onCharSelected = (id) => {
+    this.setState({
+      selectedChar: id
+    })
   }
   
   render(){
-    const randomCharBlock = this.state.charBlockToggle ? <RandomChar/> : null;
+    const randomCharBlock = this.state.showRandomChar ? <RandomChar/> : null;
+
+    if (this.state.error) {
+      return <ErrorMessage/>
+    }
 
     return (
       <> 
@@ -30,7 +52,7 @@ class App extends Component {
         <Container>
           <Row>
             <Col lg={{size: 5, offset: 0}}>
-              <Button 
+              <Button className="mb-4"
                 onClick={this.onToggleRandomChar}
                 color="info">
                 Toggle RandomChar
@@ -38,14 +60,7 @@ class App extends Component {
               {randomCharBlock}
             </Col>
           </Row>
-          <Row>
-            <Col md='6'>
-              <ItemList />
-            </Col>
-            <Col md='6'>
-              <CharDetails />
-            </Col>
-          </Row>
+          <CaracterPage/>
         </Container>
       </>
     );
