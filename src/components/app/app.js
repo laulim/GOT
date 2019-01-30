@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import {Col, Row, Container, Button} from 'reactstrap';
 import Header from '../header';
-import RandomChar from '../randomChar';
+import RandomItem from '../randomItem';
 import ErrorMessage from '../errorMessage';
-import CaracterPage from '../characterPage';
-// import GotService from '../../services/gotService';
+import {CaracterPage, BooksPage, HousesPage} from '../pages';
+import GotService from '../../services/gotService';
 
 
 class App extends Component {
 
+  gotService = new GotService;
   state = {
-    showRandomChar: true,
-    selectedChar: null,
     error: false
   }
 
@@ -21,24 +20,9 @@ class App extends Component {
       error: true
     })
   }
-  
-  onToggleRandomChar = (e) => {
-    e.preventDefault();
-    this.setState((state) => {
-      return {
-        showRandomChar: !state.showRandomChar
-      }
-    });
-  }
 
-  onCharSelected = (id) => {
-    this.setState({
-      selectedChar: id
-    })
-  }
   
   render(){
-    const randomCharBlock = this.state.showRandomChar ? <RandomChar/> : null;
 
     if (this.state.error) {
       return <ErrorMessage/>
@@ -50,17 +34,44 @@ class App extends Component {
           <Header />
         </Container>
         <Container>
-          <Row>
-            <Col lg={{size: 5, offset: 0}}>
-              <Button className="mb-4"
-                onClick={this.onToggleRandomChar}
-                color="info">
-                Toggle RandomChar
-              </Button>
-              {randomCharBlock}
-            </Col>
-          </Row>
+          <RandomItem
+            btnName='caracter'
+            itemIdInterval={[500, 35]} 
+            getData={this.gotService.getCharacter}
+            fieldsList={[
+              ['gender', 'Gender'],
+              ['born', 'Born'],
+              ['died', 'Died'],
+              ['culture', 'Culture'],
+            ]}
+          />
           <CaracterPage/>
+
+          <RandomItem
+            btnName='house'
+            itemIdInterval={[80, 1]} 
+            getData={this.gotService.getHouse}
+            fieldsList={[
+              ['region', 'Region'],
+              ['words', 'Words'],
+              ['titles', 'Titles'],
+              ['overlord', 'Overlord'],
+              ['ancestralWeapons', 'Ancestra wWeapons'],
+            ]}
+          />
+          <HousesPage/>
+
+          <RandomItem
+            btnName='book'
+            itemIdInterval={[10, 1]} 
+            getData={this.gotService.getBook}
+            fieldsList={[
+              ['numberOfPages', 'Number of pages'],
+              ['publisher', 'Publisher'],
+              ['released', 'Released'],
+            ]}
+          />
+          <BooksPage/>
         </Container>
       </>
     );

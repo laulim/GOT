@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import { ListGroupItem } from 'reactstrap';
-import GotService from '../../services/gotService';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 
@@ -16,21 +15,21 @@ const ItemListUl = styled.ul`
 
 export default class ItemList extends Component {
 
-  gotService = new GotService();
   state = {
-    charList: null,
+    itemList: null,
     error: false,
     loading: true,
     errorStatus: null
   }
 
   componentDidMount() {
-    const page = Math.floor(Math.random()*200 + 10);
-    this.gotService.getAllCaracters(page, 3)
-      .then((charList) => {
+    const {getData, pageDetails} = this.props;
+    
+    getData(...pageDetails)
+      .then((itemList) => {
         this.setState({
           loading: false,
-          charList
+          itemList
         })
       })
       .catch((res) => {
@@ -47,28 +46,25 @@ export default class ItemList extends Component {
   }
 
   renderItems (arr) {
-
     return arr.map((item) => {
-      const urlArr = item.url.split('/');
-      const id = urlArr[urlArr.length - 1];
-
+      const {id} = item;
+      const label = this.props.renderItem(item);
       return (
-        <ListGroupItem key={id} onClick={() => this.props.onCharSelected(id)}>
-          {item.name}
+        <ListGroupItem key={id} onClick={() => this.props.onItemSelected(id)}>
+          {label}
         </ListGroupItem>
       )
     })
   }
 
   render() {
-
-    const {charList, error, loading, errorStatus} = this.state;
+    const {itemList, error, loading, errorStatus} = this.state;
     const errorMessage = error ? <ErrorMessage errorStatus={errorStatus}/> : null;
     const spinner = loading ? <Spinner/> : null;
-    const items = !(loading || error) ? this.renderItems(charList) : null;
+    const items = !(loading || error) ? this.renderItems(itemList) : null;
 
     return (
-      <ItemListUl className="list-group">
+      <ItemListUl className="list-group mb-5">
         {errorMessage}
         {spinner}
         {items}

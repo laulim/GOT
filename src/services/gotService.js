@@ -1,10 +1,10 @@
-
+import React from 'react';
 export default class GotService {
   constructor() {
     this._apiBase = 'https://www.anapioficeandfire.com/api';
   }
 
-  async getResourses(url) {
+  getResourses = async (url) => {
     const res = await fetch(`${this._apiBase}${url}`);
     
     if (!res.ok) {
@@ -15,7 +15,7 @@ export default class GotService {
     return await res.json();
   };
 
-  async getAllCaracters(page, pageSize=10) {
+  getAllCaracters = async(page, pageSize=10) => {
     const res = await this.getResourses(`/characters?page=${page}&pageSize=${pageSize}`);
     if (res.length == 0) {
       throw res.status;
@@ -23,59 +23,72 @@ export default class GotService {
     return res.map(this._transformCharacter);
   }
 
-  async getCharacter(id) {
+  getCharacter = async (id) => {
     const character = await this.getResourses(`/characters/${id}`);
     return this._transformCharacter(character);
   }
 
-  async getAllBooks(page, pageSize=10) {
+  getAllBooks = async (page, pageSize=10) => {
     const res = await this.getResourses(`/books?page=${page}&pageSize=${pageSize}`);
+    if (res.length == 0) {
+      throw res.status;
+    }
     return res.map(this._transformBook);
   }
 
-  async getBook(id) {
+  getBook = async (id) => {
     const book = await this.getResourses(`/books/${id}`);
     return this._transformBook(book);
   }
 
-  async getAllHouses(page, pageSize=10) {
+  getAllHouses = async (page, pageSize=10) => {
     const res = await this.getResourses(`/houses?page=${page}&pageSize=${pageSize}`);
+    if (res.length == 0) {
+      throw res.status;
+    }
     return res.map(this._transformHouse);
   }
 
-  async getHouse(id) {
+  getHouse = async (id) => {
     const house = await this.getResourses(`/houses/${id}`);
     return this._transformHouse(house);
   }
 
-  _transformCharacter(char){
+  isSet = (data) => {
+    const check = Array.isArray(data) ? data[0] : data;
+    return (check) ? data : 'lost to history...';
+  }
+
+  _transformCharacter = (char) => {
     return {
-      url: char.url,
-      name: char.name || 'lost to history...',
-      gender: char.gender || 'lost to history...',
-      born: char.born || 'lost to history...',
-      died: char.died || 'lost to history...',
-      culture: char.culture || 'lost to history...'
+      id: char.url.split('/').pop(),
+      name: this.isSet(char.name),
+      gender: this.isSet(char.gender),
+      born: this.isSet(char.born),
+      died: this.isSet(char.died),
+      culture: this.isSet(char.culture)
     }
   }
 
-  _transformHouse(house) {
+  _transformHouse = (house) => {
     return {
-      name: house.name || 'lost to history...',
-      region: house.region || 'lost to history...',
-      words: house.words || 'lost to history...',
-      titles: house.titles || 'lost to history...',
-      overload: house.overload || 'lost to history...',
-      ancestralWeapons: house.ancestralWeapons || 'lost to history...'
+      id: house.url.split('/').pop(),
+      name: this.isSet(house.name),
+      region: this.isSet(house.region),
+      words: this.isSet(house.words),
+      titles: this.isSet(house.titles),
+      overlord: this.isSet(house.overlord),
+      ancestralWeapons: this.isSet(house.ancestralWeapons)
     }
   }
 
-  _transformBook(book) {
+  _transformBook = (book) => {
     return {
-      name: book.name || 'lost to history...',
-      numberOfPages: book.numberOfPages || 'lost to history...',
-      publisher: book.publisher || 'lost to history...',
-      released: book.released || 'lost to history...'
+      id: book.url.split('/').pop(),
+      name: this.isSet(book.name),
+      numberOfPages: this.isSet(book.numberOfPages),
+      publisher: this.isSet(book.publiser),
+      released: this.isSet(book.released)
     }
   }
 }

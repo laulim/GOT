@@ -9,6 +9,26 @@ const Img = styled.img`
   width: 100%
 `
 
+const ErrorBlock = styled.div`
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #fff;
+  img {
+    width: 100%;
+  }
+  span {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+  }
+`
+
 class ErrorMessage extends Component {
   
   render() {
@@ -22,10 +42,10 @@ class ErrorMessage extends Component {
     }
 
     return (
-      <>
-        <Img src={_img} alt='error'/>
+      <ErrorBlock>
+        <img src={_img} alt='error'/>
         <span>Something goes wrong</span>
-      </>
+      </ErrorBlock>
     )
   }
 }
