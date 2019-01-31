@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { ListGroup, ListGroupItem,Col, Row, Button } from 'reactstrap';
-import styled from 'styled-components';
+import {Col, Row, Button } from 'reactstrap';
 import GotService from '../../services/gotService';
 import ItemDetails, {Field} from '../itemDetails';
 

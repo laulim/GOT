@@ -7,7 +7,7 @@ import GotService from '../../services/gotService';
 
 export default class CaracterPage extends Component {
 
-  gotService = new GotService;
+  gotService = new GotService();
   state = {
     selectedChar: null,
     error: false

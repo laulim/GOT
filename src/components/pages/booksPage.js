@@ -7,7 +7,7 @@ import GotService from '../../services/gotService';
 
 export default class BooksPage extends Component {
 
-  gotService = new GotService;
+  gotService = new GotService();
   state = {
     selectedBook: null,
     error: false

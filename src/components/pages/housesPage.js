@@ -7,7 +7,7 @@ import GotService from '../../services/gotService';
 
 export default class HousesPage extends Component {
 
-  gotService = new GotService;
+  gotService = new GotService();
   state = {
     selectedHouse: null,
     error: false

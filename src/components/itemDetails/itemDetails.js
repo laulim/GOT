@@ -37,7 +37,7 @@ export { Field }
 
 export default class ItemDetails extends Component {
 
-  gotService = new GotService;
+  gotService = new GotService();
   state = {
     item: null,
     loading: false,

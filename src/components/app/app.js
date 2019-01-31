@@ -1,32 +1,16 @@
 import React, {Component} from 'react';
-import {Col, Row, Container, Button} from 'reactstrap';
+import {Container} from 'reactstrap';
 import Header from '../header';
 import RandomItem from '../randomItem';
-import ErrorMessage from '../errorMessage';
 import {CaracterPage, BooksPage, HousesPage} from '../pages';
 import GotService from '../../services/gotService';
 
 
 class App extends Component {
 
-  gotService = new GotService;
-  state = {
-    error: false
-  }
-
-  componentDidCatch() {
-    console.log('error');
-    this.setState({
-      error: true
-    })
-  }
-
+  gotService = new GotService();
   
   render(){
-
-    if (this.state.error) {
-      return <ErrorMessage/>
-    }
 
     return (
       <> 

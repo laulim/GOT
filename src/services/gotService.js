@@ -1,4 +1,4 @@
-import React from 'react';
+
 export default class GotService {
   constructor() {
     this._apiBase = 'https://www.anapioficeandfire.com/api';
@@ -17,7 +17,7 @@ export default class GotService {
 
   getAllCaracters = async(page, pageSize=10) => {
     const res = await this.getResourses(`/characters?page=${page}&pageSize=${pageSize}`);
-    if (res.length == 0) {
+    if (res.length === 0) {
       throw res.status;
     }
     return res.map(this._transformCharacter);
@@ -30,7 +30,7 @@ export default class GotService {
 
   getAllBooks = async (page, pageSize=10) => {
     const res = await this.getResourses(`/books?page=${page}&pageSize=${pageSize}`);
-    if (res.length == 0) {
+    if (res.length === 0) {
       throw res.status;
     }
     return res.map(this._transformBook);
@@ -43,7 +43,7 @@ export default class GotService {
 
   getAllHouses = async (page, pageSize=10) => {
     const res = await this.getResourses(`/houses?page=${page}&pageSize=${pageSize}`);
-    if (res.length == 0) {
+    if (res.length === 0) {
       throw res.status;
     }
     return res.map(this._transformHouse);
@@ -77,7 +77,7 @@ export default class GotService {
       region: this.isSet(house.region),
       words: this.isSet(house.words),
       titles: this.isSet(house.titles),
-      overlord: this.isSet(house.overlord),
+      overlord: this.isSet(house.overlord.split('/').pop()),
       ancestralWeapons: this.isSet(house.ancestralWeapons)
     }
   }
@@ -87,8 +87,8 @@ export default class GotService {
       id: book.url.split('/').pop(),
       name: this.isSet(book.name),
       numberOfPages: this.isSet(book.numberOfPages),
-      publisher: this.isSet(book.publiser),
-      released: this.isSet(book.released)
+      publisher: this.isSet(book.publisher),
+      released: this.isSet(new Date(book.released).toLocaleDateString())
     }
   }
 }

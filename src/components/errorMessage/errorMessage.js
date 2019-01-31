@@ -5,10 +5,6 @@ import img404 from './404.jpg';
 import img408 from './408.png';
 import img410 from './410.jpg';
 
-const Img = styled.img`
-  width: 100%
-`
-
 const ErrorBlock = styled.div`
   border-radius: 0.25rem;
   overflow: hidden;
