@@ -4,8 +4,9 @@ import ItemList from '../itemList';
 import ItemDetails, {Field} from '../itemDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
+import RandomItem from '../randomItem';
 
-export default class CaracterPage extends Component {
+export default class CharacterPage extends Component {
 
   gotService = new GotService();
   state = {
@@ -35,7 +36,7 @@ export default class CaracterPage extends Component {
       <ItemList 
         onItemSelected={this.onItemSelected}
         getData={this.gotService.getAllCaracters}
-        pageDetails={[page, 3]}
+        pageDetails={[page, 5]}
         renderItem={({name, gender}) => `${name} (${gender})`}
       />
     )
@@ -54,7 +55,20 @@ export default class CaracterPage extends Component {
     )
 
     return (
-      <RowBlock left={itemList} right={itemDetails}/>
+      <>
+        <RandomItem
+          btnName='character'
+          itemIdInterval={[500, 35]} 
+          getData={this.gotService.getCharacter}
+          fieldsList={[
+            ['gender', 'Gender'],
+            ['born', 'Born'],
+            ['died', 'Died'],
+            ['culture', 'Culture'],
+          ]}
+        />
+        <RowBlock left={itemList} right={itemDetails}/>
+      </>
     )
   }
 }

@@ -4,6 +4,7 @@ import ItemList from '../itemList';
 import ItemDetails, {Field} from '../itemDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
+import RandomItem from '../randomItem';
 
 export default class HousesPage extends Component {
 
@@ -29,13 +30,13 @@ export default class HousesPage extends Component {
     if (this.state.error) {
       return <ErrorMessage/>
     }
-    const page = Math.floor(Math.random()*80 + 1);
+    const page = Math.floor(Math.random()*70 + 1);
 
     const itemList = (
       <ItemList 
         onItemSelected={this.onItemSelected}
         getData={this.gotService.getAllHouses}
-        pageDetails={[page, 3]}
+        pageDetails={[page, 5]}
         renderItem={({name}) => name}
       />
     )
@@ -55,7 +56,21 @@ export default class HousesPage extends Component {
     )
 
     return (
-      <RowBlock left={itemList} right={itemDetails}/>
+      <>
+        <RandomItem
+          btnName='house'
+          itemIdInterval={[80, 1]} 
+          getData={this.gotService.getHouse}
+          fieldsList={[
+            ['region', 'Region'],
+            ['words', 'Words'],
+            ['titles', 'Titles'],
+            ['overlord', 'Overlord'],
+            ['ancestralWeapons', 'Ancestra wWeapons'],
+          ]}
+        />
+        <RowBlock left={itemList} right={itemDetails}/>
+      </>
     )
   }
 }

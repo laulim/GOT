@@ -1,65 +1,46 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Container} from 'reactstrap';
 import Header from '../header';
-import RandomItem from '../randomItem';
-import {CaracterPage, BooksPage, HousesPage} from '../pages';
-import GotService from '../../services/gotService';
+import {CharacterPage, BooksPage, HousesPage, BooksItem, MainPage, NotFound} from '../pages';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import styled from 'styled-components';
+import background from './got.jpeg'
 
+const AppWrapper = styled.div`
+  overflow-x: hidden;
+  background: url(${background}) center center no-repeat;
+  background-size: cover;
+  font-size: 16px;
+  height: 100%;
+  min-height: 100vh;
+`
 
-class App extends Component {
-
-  gotService = new GotService();
+const App = () => {
   
-  render(){
-
-    return (
-      <> 
+  return (
+    <Router>
+      <AppWrapper > 
         <Container>
           <Header />
         </Container>
-        <Container>
-          <RandomItem
-            btnName='caracter'
-            itemIdInterval={[500, 35]} 
-            getData={this.gotService.getCharacter}
-            fieldsList={[
-              ['gender', 'Gender'],
-              ['born', 'Born'],
-              ['died', 'Died'],
-              ['culture', 'Culture'],
-            ]}
-          />
-          <CaracterPage/>
-
-          <RandomItem
-            btnName='house'
-            itemIdInterval={[80, 1]} 
-            getData={this.gotService.getHouse}
-            fieldsList={[
-              ['region', 'Region'],
-              ['words', 'Words'],
-              ['titles', 'Titles'],
-              ['overlord', 'Overlord'],
-              ['ancestralWeapons', 'Ancestra wWeapons'],
-            ]}
-          />
-          <HousesPage/>
-
-          <RandomItem
-            btnName='book'
-            itemIdInterval={[10, 1]} 
-            getData={this.gotService.getBook}
-            fieldsList={[
-              ['numberOfPages', 'Number of pages'],
-              ['publisher', 'Publisher'],
-              ['released', 'Released'],
-            ]}
-          />
-          <BooksPage/>
+        <Container className="pt-5">
+          <Switch>
+            <Route path='/' exact component={MainPage}/>
+            <Route path='/characters' exact component={CharacterPage}/>
+            <Route path='/houses' exact component={HousesPage} />
+            <Route path='/books' exact component={BooksPage} />
+            <Route path='/books/:id' render={
+              ({match}) => {
+                const {id} = match.params;
+                return <BooksItem bookId={id}/>
+                }
+            }/>
+            <Route component={NotFound}/>
+          </Switch>
         </Container>
-      </>
-    );
-  }
+      </AppWrapper>
+    </Router>
+  );
 };
 
 export default App;
