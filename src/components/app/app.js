@@ -1,42 +1,45 @@
 import React from 'react';
-import {Col, Row, Container} from 'reactstrap';
+import {Container} from 'reactstrap';
 import Header from '../header';
-import RandomChar from '../randomChar';
-import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import {CharacterPage, BooksPage, HousesPage, BooksItem, MainPage, NotFound} from '../pages';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import styled from 'styled-components';
+import background from './got.jpeg'
 
-import GotService from '../../services/gotService';
-
-const got = new GotService;
-console.log(got.getAllCaracters(15, 5));
-console.log(got.getCharacter(283));
-console.log(got.getAllBooks(2));
-console.log(got.getBook(10));
-console.log(got.getAllHouses(2));
-console.log(got.getHouse(23));
+const AppWrapper = styled.div`
+  overflow-x: hidden;
+  background: url(${background}) center center no-repeat;
+  background-size: cover;
+  font-size: 16px;
+  height: 100%;
+  min-height: 100vh;
+`
 
 const App = () => {
+  
   return (
-    <> 
-      <Container>
-        <Header />
-      </Container>
-      <Container>
-        <Row>
-          <Col lg={{size: 5, offset: 0}}>
-            <RandomChar/>
-          </Col>
-        </Row>
-        <Row>
-          <Col md='6'>
-            <ItemList />
-          </Col>
-          <Col md='6'>
-            <CharDetails />
-          </Col>
-        </Row>
-      </Container>
-    </>
+    <Router>
+      <AppWrapper > 
+        <Container>
+          <Header />
+        </Container>
+        <Container className="pt-5">
+          <Switch>
+            <Route path='/' exact component={MainPage}/>
+            <Route path='/characters' exact component={CharacterPage}/>
+            <Route path='/houses' exact component={HousesPage} />
+            <Route path='/books' exact component={BooksPage} />
+            <Route path='/books/:id' render={
+              ({match}) => {
+                const {id} = match.params;
+                return <BooksItem bookId={id}/>
+                }
+            }/>
+            <Route component={NotFound}/>
+          </Switch>
+        </Container>
+      </AppWrapper>
+    </Router>
   );
 };
 
