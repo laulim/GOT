@@ -29,7 +29,7 @@ const App = () => {
             <Route path='/characters' exact component={CharacterPage}/>
             <Route path='/houses' exact component={HousesPage} />
             <Route path='/books' exact component={BooksPage} />
-            <Route path='/books/:id' render={
+            <Route path='/books/:id/' render={
               ({match}) => {
                 const {id} = match.params;
                 return <BooksItem bookId={id}/>

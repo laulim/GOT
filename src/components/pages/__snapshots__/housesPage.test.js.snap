@@ -1,0 +1,390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <HousesPage/> HousesPage has been rendered 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HousesPage />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <RandomItem
+          btnName="house"
+          fieldsList={
+            Array [
+              Array [
+                "region",
+                "Region",
+              ],
+              Array [
+                "words",
+                "Words",
+              ],
+              Array [
+                "titles",
+                "Titles",
+              ],
+              Array [
+                "overlord",
+                "Overlord",
+              ],
+              Array [
+                "ancestralWeapons",
+                "Ancestra wWeapons",
+              ],
+            ]
+          }
+          getData={[Function]}
+          itemIdInterval={
+            Array [
+              80,
+              1,
+            ]
+          }
+        />,
+        <RowBlock
+          left={
+            <ItemList
+              getData={[Function]}
+              onItemSelected={[Function]}
+              pageDetails={
+                Array [
+                  45,
+                  5,
+                ]
+              }
+              renderItem={[Function]}
+            />
+          }
+          right={
+            <ItemDetails
+              emptyTitle="house"
+              getData={[Function]}
+              itemId={null}
+            >
+              <Field
+                field="region"
+                label="Region"
+              />
+              <Field
+                field="words"
+                label="Words"
+              />
+              <Field
+                field="titles"
+                label="Titles"
+              />
+              <Field
+                field="overlord"
+                label="Overlord"
+              />
+              <Field
+                field="ancestralWeapons"
+                label="Ancestral weapons"
+              />
+            </ItemDetails>
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "btnName": "house",
+          "fieldsList": Array [
+            Array [
+              "region",
+              "Region",
+            ],
+            Array [
+              "words",
+              "Words",
+            ],
+            Array [
+              "titles",
+              "Titles",
+            ],
+            Array [
+              "overlord",
+              "Overlord",
+            ],
+            Array [
+              "ancestralWeapons",
+              "Ancestra wWeapons",
+            ],
+          ],
+          "getData": [Function],
+          "itemIdInterval": Array [
+            80,
+            1,
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "left": <ItemList
+            getData={[Function]}
+            onItemSelected={[Function]}
+            pageDetails={
+              Array [
+                45,
+                5,
+              ]
+            }
+            renderItem={[Function]}
+          />,
+          "right": <ItemDetails
+            emptyTitle="house"
+            getData={[Function]}
+            itemId={null}
+          >
+            <Field
+              field="region"
+              label="Region"
+            />
+            <Field
+              field="words"
+              label="Words"
+            />
+            <Field
+              field="titles"
+              label="Titles"
+            />
+            <Field
+              field="overlord"
+              label="Overlord"
+            />
+            <Field
+              field="ancestralWeapons"
+              label="Ancestral weapons"
+            />
+          </ItemDetails>,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <RandomItem
+            btnName="house"
+            fieldsList={
+              Array [
+                Array [
+                  "region",
+                  "Region",
+                ],
+                Array [
+                  "words",
+                  "Words",
+                ],
+                Array [
+                  "titles",
+                  "Titles",
+                ],
+                Array [
+                  "overlord",
+                  "Overlord",
+                ],
+                Array [
+                  "ancestralWeapons",
+                  "Ancestra wWeapons",
+                ],
+              ]
+            }
+            getData={[Function]}
+            itemIdInterval={
+              Array [
+                80,
+                1,
+              ]
+            }
+          />,
+          <RowBlock
+            left={
+              <ItemList
+                getData={[Function]}
+                onItemSelected={[Function]}
+                pageDetails={
+                  Array [
+                    45,
+                    5,
+                  ]
+                }
+                renderItem={[Function]}
+              />
+            }
+            right={
+              <ItemDetails
+                emptyTitle="house"
+                getData={[Function]}
+                itemId={null}
+              >
+                <Field
+                  field="region"
+                  label="Region"
+                />
+                <Field
+                  field="words"
+                  label="Words"
+                />
+                <Field
+                  field="titles"
+                  label="Titles"
+                />
+                <Field
+                  field="overlord"
+                  label="Overlord"
+                />
+                <Field
+                  field="ancestralWeapons"
+                  label="Ancestral weapons"
+                />
+              </ItemDetails>
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "btnName": "house",
+            "fieldsList": Array [
+              Array [
+                "region",
+                "Region",
+              ],
+              Array [
+                "words",
+                "Words",
+              ],
+              Array [
+                "titles",
+                "Titles",
+              ],
+              Array [
+                "overlord",
+                "Overlord",
+              ],
+              Array [
+                "ancestralWeapons",
+                "Ancestra wWeapons",
+              ],
+            ],
+            "getData": [Function],
+            "itemIdInterval": Array [
+              80,
+              1,
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "left": <ItemList
+              getData={[Function]}
+              onItemSelected={[Function]}
+              pageDetails={
+                Array [
+                  45,
+                  5,
+                ]
+              }
+              renderItem={[Function]}
+            />,
+            "right": <ItemDetails
+              emptyTitle="house"
+              getData={[Function]}
+              itemId={null}
+            >
+              <Field
+                field="region"
+                label="Region"
+              />
+              <Field
+                field="words"
+                label="Words"
+              />
+              <Field
+                field="titles"
+                label="Titles"
+              />
+              <Field
+                field="overlord"
+                label="Overlord"
+              />
+              <Field
+                field="ancestralWeapons"
+                label="Ancestral weapons"
+              />
+            </ItemDetails>,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -5,7 +5,7 @@ import GotService from '../../services/gotService';
 import {withRouter} from 'react-router-dom';
 import RandomItem from '../randomItem';
 
-class BooksPage extends Component {
+export class BooksPage extends Component {
 
   gotService = new GotService();
   state = {

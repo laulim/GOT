@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <CharacterPage/> CharacterPage has been rendered 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CharacterPage />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <RandomItem
+          btnName="character"
+          fieldsList={
+            Array [
+              Array [
+                "gender",
+                "Gender",
+              ],
+              Array [
+                "born",
+                "Born",
+              ],
+              Array [
+                "died",
+                "Died",
+              ],
+              Array [
+                "culture",
+                "Culture",
+              ],
+            ]
+          }
+          getData={[Function]}
+          itemIdInterval={
+            Array [
+              500,
+              35,
+            ]
+          }
+        />,
+        <RowBlock
+          left={
+            <ItemList
+              getData={[Function]}
+              onItemSelected={[Function]}
+              pageDetails={
+                Array [
+                  36,
+                  5,
+                ]
+              }
+              renderItem={[Function]}
+            />
+          }
+          right={
+            <ItemDetails
+              emptyTitle="character"
+              getData={[Function]}
+              itemId={null}
+            >
+              <Field
+                field="gender"
+                label="Gender"
+              />
+              <Field
+                field="born"
+                label="Born"
+              />
+              <Field
+                field="died"
+                label="Died"
+              />
+              <Field
+                field="culture"
+                label="Culture"
+              />
+            </ItemDetails>
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "btnName": "character",
+          "fieldsList": Array [
+            Array [
+              "gender",
+              "Gender",
+            ],
+            Array [
+              "born",
+              "Born",
+            ],
+            Array [
+              "died",
+              "Died",
+            ],
+            Array [
+              "culture",
+              "Culture",
+            ],
+          ],
+          "getData": [Function],
+          "itemIdInterval": Array [
+            500,
+            35,
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "left": <ItemList
+            getData={[Function]}
+            onItemSelected={[Function]}
+            pageDetails={
+              Array [
+                36,
+                5,
+              ]
+            }
+            renderItem={[Function]}
+          />,
+          "right": <ItemDetails
+            emptyTitle="character"
+            getData={[Function]}
+            itemId={null}
+          >
+            <Field
+              field="gender"
+              label="Gender"
+            />
+            <Field
+              field="born"
+              label="Born"
+            />
+            <Field
+              field="died"
+              label="Died"
+            />
+            <Field
+              field="culture"
+              label="Culture"
+            />
+          </ItemDetails>,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <RandomItem
+            btnName="character"
+            fieldsList={
+              Array [
+                Array [
+                  "gender",
+                  "Gender",
+                ],
+                Array [
+                  "born",
+                  "Born",
+                ],
+                Array [
+                  "died",
+                  "Died",
+                ],
+                Array [
+                  "culture",
+                  "Culture",
+                ],
+              ]
+            }
+            getData={[Function]}
+            itemIdInterval={
+              Array [
+                500,
+                35,
+              ]
+            }
+          />,
+          <RowBlock
+            left={
+              <ItemList
+                getData={[Function]}
+                onItemSelected={[Function]}
+                pageDetails={
+                  Array [
+                    36,
+                    5,
+                  ]
+                }
+                renderItem={[Function]}
+              />
+            }
+            right={
+              <ItemDetails
+                emptyTitle="character"
+                getData={[Function]}
+                itemId={null}
+              >
+                <Field
+                  field="gender"
+                  label="Gender"
+                />
+                <Field
+                  field="born"
+                  label="Born"
+                />
+                <Field
+                  field="died"
+                  label="Died"
+                />
+                <Field
+                  field="culture"
+                  label="Culture"
+                />
+              </ItemDetails>
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "btnName": "character",
+            "fieldsList": Array [
+              Array [
+                "gender",
+                "Gender",
+              ],
+              Array [
+                "born",
+                "Born",
+              ],
+              Array [
+                "died",
+                "Died",
+              ],
+              Array [
+                "culture",
+                "Culture",
+              ],
+            ],
+            "getData": [Function],
+            "itemIdInterval": Array [
+              500,
+              35,
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "left": <ItemList
+              getData={[Function]}
+              onItemSelected={[Function]}
+              pageDetails={
+                Array [
+                  36,
+                  5,
+                ]
+              }
+              renderItem={[Function]}
+            />,
+            "right": <ItemDetails
+              emptyTitle="character"
+              getData={[Function]}
+              itemId={null}
+            >
+              <Field
+                field="gender"
+                label="Gender"
+              />
+              <Field
+                field="born"
+                label="Born"
+              />
+              <Field
+                field="died"
+                label="Died"
+              />
+              <Field
+                field="culture"
+                label="Culture"
+              />
+            </ItemDetails>,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
